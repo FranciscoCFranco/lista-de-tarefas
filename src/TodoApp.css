@@ -1,0 +1,35 @@
+/* TodoApp.css */
+
+.sidebar {
+    width: 200px;
+    height: 100%;
+    background-color: #333; /* Cor de fundo do menu lateral */
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar a {
+    color: #fff; /* Cor do texto do menu lateral */
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+  }
+  
+  .main-content {
+    margin-left: 220px; /* Largura do menu lateral + margem */
+  }
+  
+  /* Adapte os estilos conforme necessário */
+  
