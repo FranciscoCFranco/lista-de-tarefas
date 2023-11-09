@@ -3,11 +3,10 @@ import { connect } from "react-redux";
 import Todo from "./Todo";
 import { getTodosByVisibilityFilter } from "../redux/selectors";
 import { deleteTodo } from "../redux/actions";
-
-import "./styles/TodoList.css"; // Importe o arquivo de estilos
+import "./styles/TodoList.css";
 
 const TodoList = ({ todos, deleteTodo }) => (
-  <div className="todo-list-container"> {/* Adicione um contêiner */}
+  <div className="todo-list-container">
     <ul className="todo-list">
       {todos && todos.length ? (
         todos.map((todo, index) => {

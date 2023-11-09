@@ -2,19 +2,16 @@
     font-family: sans-serif;
   }
   
-  /** add todo **/
   .add-todo {
     margin-left: 0.5rem;
   }
   
-  /** todo list **/
   .todo-list {
     margin-top: 1rem;
     text-align: left;
     list-style: none;
   }
   
-  /** todo item **/
   .todo-item {
     font-family: monospace;
     cursor: pointer;
@@ -25,7 +22,6 @@
     color: lightgray;
   }
   
-  /** visibility filters **/
   .filter {
     padding: 0.3rem 0;
     margin: 0 0.3rem;
@@ -59,14 +55,11 @@
   }
   
   .add-todo-container {
-    margin-bottom: 20px; /* Adiciona margem inferior para separar a seção de adição de tarefas */
+    margin-bottom: 20px;
   }
   
   .todo-list-container {
-    max-height: 60vh; /* Define uma altura máxima para a lista de tarefas */
-    overflow-y: auto; /* Adiciona uma barra de rolagem vertical se a lista de tarefas ultrapassar a altura máxima */
+    max-height: 60vh;
+    overflow-y: auto;
   }
-  
-  /* Adicione outros estilos conforme necessário */
-  
   
