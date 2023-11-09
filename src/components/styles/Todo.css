@@ -1,0 +1,40 @@
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  padding: 8px;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.content-label {
+  flex-grow: 1;
+  margin: auto;
+  width: 150px;
+}
+  
+.completed {
+  text-decoration: line-through;
+}
+  
+.checkbox-container {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+}
+  
+.id {
+  margin-right: 4px;
+  width: 50px;
+}
+
+.content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  width: auto;
+}

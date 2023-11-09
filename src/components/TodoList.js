@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import Todo from "./Todo";
 import { getTodosByVisibilityFilter } from "../redux/selectors";
 import { deleteTodo } from "../redux/actions";
-import "./styles/TodoList.css";
 
 const TodoList = ({ todos, deleteTodo }) => (
   <div className="todo-list-container">

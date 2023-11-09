@@ -1,10 +1,11 @@
+// TodoApp.js
+
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import AddTodo from "./components/AddTodo";
 import TodoList from "./components/TodoList";
 import VisibilityFilters from "./components/VisibilityFilters";
 import Login from "./components/Login";
-import "./styles.css";
 
 export default function TodoApp() {
   const [user, setUser] = useState(null);
@@ -18,13 +19,20 @@ export default function TodoApp() {
   };
 
   return (
-    <div className="todo-app">
+    <div className={`todo-app ${user ? "authenticated" : ""}`}>
       <Router>
+        {user && (
+          <button className="logout-button" onClick={handleLogout}>
+            Logout
+          </button>
+        )}
         {user ? (
           <div className="main-content">
-            <h1>Bem-vindo, {user}!</h1>
-            <button onClick={handleLogout}>Logout</button>
-            <AddTodo />
+            <h1>Bem-vindo, {user || "Visitante"}!</h1>
+            <div className="button-container">
+              <AddTodo />
+            </div>
+            <VisibilityFilters />
             <div className="todo-list-container">
               <Routes>
                 <Route path="/" element={<TodoList filter="all" />} />
@@ -32,14 +40,10 @@ export default function TodoApp() {
                 <Route path="/incomplete" element={<TodoList filter="incomplete" />} />
               </Routes>
             </div>
-            <VisibilityFilters />
           </div>
         ) : (
           <Routes>
-            <Route
-              path="/"
-              element={<Login onLogin={handleLogin} />}
-            />
+            <Route path="/" element={<Login onLogin={handleLogin} />} />
             <Route path="/*" element={<Navigate to="/" />} />
           </Routes>
         )}

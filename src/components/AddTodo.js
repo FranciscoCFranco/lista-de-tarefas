@@ -1,27 +1,53 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addTodo } from "../redux/actions";
+import './styles/AddTodo.css'
 
 const AddTodo = ({ addTodo }) => {
-  const [input, setInput] = useState("");
+  const [newTodo, setNewTodo] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const updateInput = (e) => {
-    setInput(e.target.value);
+  const handleInputChange = (e) => {
+    setNewTodo(e.target.value);
+    setErrorMessage("");
   };
 
-  const handleAddTodo = () => {
-    addTodo(input);
-    setInput("");
+  const handleAddTodo = (e) => {
+    e.preventDefault();
+
+    if (newTodo.trim() !== "") {
+      addTodo(newTodo);
+      setNewTodo("");
+    } else {
+      setErrorMessage("Por favor, digite uma tarefa antes de adicionar.");
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleAddTodo(e);
+    }
   };
 
   return (
-    <div>
-      <input onChange={updateInput} value={input} />
-      <button className="add-todo" onClick={handleAddTodo}>
-        Adicionar tarefa
-      </button>
-    </div>
+    <form className="add-todo-form" onSubmit={handleAddTodo}>
+      <input
+        type="text"
+        placeholder="Adicione uma nova tarefa"
+        value={newTodo}
+        onChange={handleInputChange}
+        onKeyPress={handleKeyPress}
+      />
+      <button type="submit">Adicionar</button>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+    </form>
   );
 };
 
-export default connect(null, { addTodo })(AddTodo);
+const mapDispatchToProps = (dispatch) => ({
+  addTodo: (content) => {
+    dispatch(addTodo(content));
+  },
+});
+
+export default connect(null, mapDispatchToProps)(AddTodo);
